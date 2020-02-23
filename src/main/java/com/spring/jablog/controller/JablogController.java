@@ -41,6 +41,19 @@ public class JablogController {
         return mView;
     }
 
-    
+    @RequestMapping(value = "/posts/new", method = RequestMethod.GET)
+    public String getPostForm() {
+        return "postForm";
+    }
 
+    @RequestMapping(value = "/posts/new", method = RequestMethod.POST)
+    public String savePost(@Valid Post post, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            return "redirect:/posts/new";
+        }
+        post.setData(LocalDate.now());
+        jService.save(post);
+        
+        return "redirect:/posts";
+    }
 }
