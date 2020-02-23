@@ -41,6 +41,16 @@ public class JablogController {
         return mView;
     }
 
+    
+    @Transactional
+    @RequestMapping(value = "/posts/search", method = RequestMethod.GET)
+    public ModelAndView searchPost(@RequestParam String titulo) {
+        ModelAndView mView = new ModelAndView("search");
+        List<Post> posts = jService.findByTitulo(titulo);
+        mView.addObject("posts", posts);
+        return mView;
+    }    
+
     @RequestMapping(value = "/posts/new", method = RequestMethod.GET)
     public String getPostForm() {
         return "postForm";
