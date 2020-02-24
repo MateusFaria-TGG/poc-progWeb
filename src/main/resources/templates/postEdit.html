@@ -1,1 +1,47 @@
-The post edit page.
+<!DOCTYPE html>
+<html lang="PT-BR" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Jablog | Editar Post</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1"><a href="/posts">Jablog ;)</a></span>
+            <form class="form-inline my-2 my-lg-0" action="/posts/search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procure por título" aria-label="Search" name="titulo">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+            <a class="btn btn-info" href="/posts/new">Novo Post</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <form th:object="${post}" method="POST" style="padding-top: 20px; ">
+            <div class="form-group">
+                <label>Autor</label>
+                <input type="text" name="autor" class="form-control" th:field="*{autor}" required/>
+            </div>
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" name="titulo" class="form-control" th:field="*{titulo}" required/>
+            </div>
+        
+            <div class="form-group">
+                <label>Texto</label>
+                <textarea cols="70" rows="10" name="texto" class="form-control" th:field="*{texto}" required></textarea>
+            </div>
+            
+            <input type="hidden" id="id" th:field="*{id}"/>
+        
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a class="btn btn-default" href="/posts">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
