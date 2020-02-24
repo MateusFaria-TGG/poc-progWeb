@@ -10,7 +10,7 @@
     <!-- Google icon fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <title>Jablog | Todos os Posts</title>
+    <title>Jablog | Post Details</title>
 </head>
 <body>
     <header>
@@ -37,6 +37,8 @@
             <article>
                 <h1 class="card-title" style="font-weight: bold; margin-bottom: 20px;">
                     <span th:text="${post.titulo}"></span>
+                    <!-- Redireciona para página de edição do post-->
+                    <a th:href="${(#mvc.url('JC#editPost').arg(0,post.id)).build()}"><i class="material-icons">create</i></a>
                 </h1>
 
                 <p class="card-subtitle md-2 text-muted">

@@ -66,4 +66,17 @@ public class JablogController {
         
         return "redirect:/posts";
     }
+    
+    @RequestMapping(value = "posts/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editPost(@PathVariable("id") long id){
+    	ModelAndView mView = new ModelAndView("postEdit");
+        Post post = jService.findById(id);
+        mView.addObject("post", post);
+        return mView;
+    }
+    
+    
+    
+    
+    
 }
