@@ -74,5 +74,12 @@ public class JablogController {
         return mView;
     }
     
+    @RequestMapping(value = "posts/remove/{id}")
+    public ModelAndView removePost(@PathVariable("id") long id){
+    	Post post = jService.findById(id);
+    	jService.delete(post);
+        return getPosts();
+    }
+    
     
 }

@@ -9,4 +9,5 @@ public interface JablogService {
     public Post findById(long id);
     public Post save(Post post);
     public List<Post> findByTitulo(String titulo);
+    public void delete(Post post);
 }

@@ -40,6 +40,10 @@
                     <!-- Redireciona para página de edição do post-->
                     <a th:href="${(#mvc.url('JC#editPost').arg(0,post.id)).build()}">
                     	<i class="material-icons" data-toggle="tooltip" title="Editar post">create</i>
+                    </a>
+                    <!-- Realiza exclusão de postagem-->
+                    <a th:href="${(#mvc.url('JC#removePost').arg(0,post.id)).build()}">
+                    	<i class="material-icons" data-toggle="tooltip" title="Excluir post">delete_sweep</i>
                     </a>     
                 </h1>
                 	

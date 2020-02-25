@@ -34,6 +34,13 @@ public class JablogServiceImpl implements JablogService {
     public List<Post> findByTitulo(String titulo) {
         return jablogRepository.findByTitulo(titulo);
     }
-
+    /***
+     * Méthod to delete a post
+     * @param post Instancied post
+     */
+    public void delete(Post post) {
+    	jablogRepository.delete(post);
+    }
+    
     
 }
