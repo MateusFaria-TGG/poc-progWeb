@@ -63,7 +63,6 @@ public class JablogController {
         }
         post.setData(LocalDate.now());
         jService.save(post);
-        
         return "redirect:/posts";
     }
     
@@ -74,9 +73,6 @@ public class JablogController {
         mView.addObject("post", post);
         return mView;
     }
-    
-    
-    
     
     
 }

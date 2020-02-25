@@ -36,10 +36,13 @@
 
             <article>
                 <h1 class="card-title" style="font-weight: bold; margin-bottom: 20px;">
-                    <span th:text="${post.titulo}"></span>
+                    <span th:text="${post.titulo}"></span> 
                     <!-- Redireciona para página de edição do post-->
-                    <a th:href="${(#mvc.url('JC#editPost').arg(0,post.id)).build()}"><i class="material-icons">create</i></a>
+                    <a th:href="${(#mvc.url('JC#editPost').arg(0,post.id)).build()}">
+                    	<i class="material-icons" data-toggle="tooltip" title="Editar post">create</i>
+                    </a>     
                 </h1>
+                	
 
                 <p class="card-subtitle md-2 text-muted">
                     <i class="material-icons">person_outline</i>

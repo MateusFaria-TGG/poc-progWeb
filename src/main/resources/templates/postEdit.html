@@ -21,7 +21,7 @@
     </header>
     
     <div class="container">
-        <form th:object="${post}" method="POST" style="padding-top: 20px; ">
+        <form action="/posts/new" th:object="${post}" method="POST" style="padding-top: 20px; ">
             <div class="form-group">
                 <label>Autor</label>
                 <input type="text" name="autor" class="form-control" th:field="*{autor}" required/>
@@ -39,8 +39,8 @@
             
             <input type="hidden" id="id" th:field="*{id}"/>
         
-            <button type="submit" class="btn btn-primary">Editar</button>
-            <a class="btn btn-default" href="/posts">Cancelar</a>
+			<button type="submit" class="btn btn-primary">Editar</button>           
+            <a class="btn btn-default" th:href="${(#mvc.url('JC#getPostDetails').arg(0,post.id)).build()}">Cancelar</a>
         </form>
     </div>
 </body>
