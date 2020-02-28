@@ -32,7 +32,7 @@ public class JablogServiceImpl implements JablogService {
 
     @Override
     public List<Post> findByTitulo(String titulo) {
-        return jablogRepository.findByTitulo(titulo);
+        return jablogRepository.findByTituloLike("%" + titulo + "%");
     }
 
     
